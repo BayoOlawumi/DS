@@ -25,6 +25,7 @@ for each_student in range(1,4):
     phone_number = input(f"Please enter the phone number of student {each_student}")
     department = input(f"Please enter the department of student {each_student}")
 
+
     new_student = Student(name, age, phone_number, department)
     new_student.matric_num_generator()
     print(new_student.details_merger())

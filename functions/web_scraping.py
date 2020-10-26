@@ -1,6 +1,5 @@
 import bs4
 import requests
-import numpy
 import pandas as pd
 
 
@@ -41,13 +40,12 @@ soup = bs4.BeautifulSoup(server_response.text, 'html.parser')
 # search using another attribute
 
 #making a list from all text in the <a> tag 
-my_a_links = [
-    {"name": tag.text.translate({ord(i): None for i in '\n\t'}), "link": tag.get('href')}
+my_a_links = { tag.text.translate({ord(i): None for i in '\n\t'}): tag.get('href')
     for tag in soup.find_all('a')
-    ]
+    }
 #arrayed_list = numpy.array(my_a_links)
 print("**********Find all a links on the homepage***********")
-#print(my_a_links)
+print(my_a_links)
 
 ## Creating a csv file from the data scrapped
 
